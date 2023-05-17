@@ -19,7 +19,6 @@ import com.delpozo.dto.Usuario;
  
 
 @RestController
-@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT,RequestMethod.DELETE})
 public class UsuarioController {
 
 	private IUsuarioDAO iUsuarioDAO;
@@ -60,9 +59,4 @@ public class UsuarioController {
 		return iUsuarioDAO.findByUsername(username);
 	}
 	
-	@DeleteMapping("/users/{id}")
-	public String eliminarUser(@PathVariable(name="id")long id) {
-		iUsuarioDAO.deleteById(id);
-		return "User deleted.";
-	}
 }
